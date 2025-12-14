@@ -1,0 +1,8 @@
+New-Item -ItemType Directory -Force -Path ".\icons" | Out-Null
+
+$b64 = @'
+iVBORw0KGgoAAAANSUhEUgAAAMAAAAiVBORw0KGgoAAAANSUhEUgAAAMAAAAAwCAYAAABXAvmHAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjEwLjUsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvWftoOwAAAAlwSFlzAAAPYQAAD2EBqD+naQAADuZJREFUeJztmW2QZEdxhz+Z3Vn...
+
+'@
+
+[IO.File]::WriteAllBytes(".\icons\cub-icon-192.png", [Convert]::FromBase64String($b64.Replace("`r","").Replace("`n","")))
